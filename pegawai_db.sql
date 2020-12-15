@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2020 at 10:33 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- Generation Time: Dec 15, 2020 at 06:07 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `pegawai_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hotel`
+--
+
+CREATE TABLE `hotel` (
+  `id` int(5) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `bintang` int(5) NOT NULL,
+  `manager` varchar(100) NOT NULL,
+  `gambar` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `hotel`
+--
+
+INSERT INTO `hotel` (`id`, `nama`, `bintang`, `manager`, `gambar`) VALUES
+(1, 'testes', 5, 'testes', '5fd8eb3aad55f.jpg');
 
 -- --------------------------------------------------------
 
@@ -70,6 +91,7 @@ INSERT INTO `tabel_jabatan` (`id_jabatan`, `nama_jabatan`) VALUES
 CREATE TABLE `tabel_pegawai` (
   `id_pegawai` int(5) NOT NULL,
   `nama_pegawai` varchar(20) NOT NULL,
+  `umur` int(10) NOT NULL,
   `alamat_pegawai` varchar(100) NOT NULL,
   `id_jabatan` varchar(10) NOT NULL,
   `id_departemen` varchar(5) NOT NULL,
@@ -77,16 +99,14 @@ CREATE TABLE `tabel_pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tabel_pegawai`
---
-
-INSERT INTO `tabel_pegawai` (`id_pegawai`, `nama_pegawai`, `alamat_pegawai`, `id_jabatan`, `id_departemen`, `foto_pegawai`) VALUES
-(192, 'Monalisa', 'bali', 'J01', 'A003', '5fb59118a9fce.jpg'),
-(197, 'test', 'test', 'J01', 'A001', '5fb592a0b3b08.jpg');
-
---
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `hotel`
+--
+ALTER TABLE `hotel`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tabel_departemen`
@@ -113,10 +133,16 @@ ALTER TABLE `tabel_pegawai`
 --
 
 --
+-- AUTO_INCREMENT for table `hotel`
+--
+ALTER TABLE `hotel`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `tabel_pegawai`
 --
 ALTER TABLE `tabel_pegawai`
-  MODIFY `id_pegawai` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
+  MODIFY `id_pegawai` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=204;
 
 --
 -- Constraints for dumped tables
